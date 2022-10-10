@@ -1,0 +1,54 @@
+server:
+  port: 8800
+debug: true
+spring:
+  datasource:
+    druid:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.01:3306/demo?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=GMT%2B8&allowMultiQueries=true&useAffectedRows=true
+    username: root
+    password: 725482520
+
+    max-active: 20
+
+    initial-size: 2
+
+    min-idle: 5
+
+    min-evictable-idle-time-millis: 300000
+
+    max-wait: 60000
+
+    validation-query: select 1
+
+    test-on-borrow: false
+
+    test-on-return: false
+
+    test-while-idle: true
+
+    time-between-eviction-runs-millis: 60000
+    #????????
+#  jackson:
+#    date-format: yyyy-MM-dd hh:mm:ss
+#    time-zone: GMT+8
+
+
+  security:
+    user:
+      name: syhk
+      password: 123456
+      roles: admin
+
+#这里有问题还没有解决
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
+
+
+

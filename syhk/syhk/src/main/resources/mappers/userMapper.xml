@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.syhk.entity.User">
+
+<!--    <resultMap id="adminuserMap" type="com.example.project.entity.Admin_User">-->
+<!--        <result property="user_id" column="user_id"/>-->
+<!--        <result property="user_name" column="user_name"/>-->
+<!--        <result property="user_pwd" column="user_pwd"/>-->
+<!--        <result property="user_phone_email" column="user_phone_email"/>-->
+<!--        <result property="create_time" column="create_time"/>-->
+<!--        <result property="status" column="status"/>-->
+<!--    </resultMap>-->
+
+<!--    &lt;!&ndash;    resultMap 可以解决类的属性名和数据库列名不一致问题-->
+<!--    property 值对应实体类属性名  column 值为数据库表字段-->
+<!--    &ndash;&gt;-->
+
+<!--    &lt;!&ndash;    它代表接收一个 int 类型的参数id,返回一个 Admin_User 类型的对象&ndash;&gt;-->
+<!--    &lt;!&ndash;    <select id="myselectById" parameterType="integer"   resultType="com.example.project.entity.Admin_User">&ndash;&gt;-->
+<!--    &lt;!&ndash;        select * from user_admin where `user_id`=#{id}&ndash;&gt;-->
+<!--    &lt;!&ndash;    </select>&ndash;&gt;-->
+
+
+</mapper>

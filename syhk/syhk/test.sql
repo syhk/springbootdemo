@@ -10,7 +10,7 @@ create table  if not exists `user`(
 `name` varchar(100) not null,
 `avatarUrl` varchar(200) not null, -- 用户头像
 `gender` int(1)  not null default(1) COMMENT '1 表示男 0 表示女', -- 1 表示男 0 表示女
-`emial`  varchar(100) not null COMMENT '注册的时候需要用这个',
+`email`  varchar(100) not null COMMENT '注册的时候需要用这个',
 `status` int(1) not null COMMENT '1  表示正常 0 表示禁用',
 `createTime` Date not null COMMENT '用户创建时间',
 `updateTime` Date  not null COMMENT '用户更新时间',

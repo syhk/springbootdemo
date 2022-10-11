@@ -1,7 +1,9 @@
 package com.example.syhk.controller;
 
+import com.example.syhk.common.ResultData;
 import com.example.syhk.entity.User;
 import com.example.syhk.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +19,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
 
     @Autowired
@@ -24,26 +27,30 @@ public class UserController {
 
 //    获取所有
     @GetMapping("/getAll")
-    public List<User> getAll(){
-        return userService.list();
+    public ResultData<List<User>> getAll(){
+        log.info("进行了 getAll....");
+        return ResultData.success(userService.list());
     }
 
 //     增加
     @PostMapping("/addUser")
-    public boolean addUser(@RequestBody User user){
-           return userService.save(user);
+    public ResultData<Boolean> addUser(@RequestBody User user){
+        log.info("进行了 addUser....");
+        return ResultData.success(userService.save(user));
     }
 
 //    更改
     @PutMapping("/updateUser")
-    public boolean updateUser(@RequestBody User user){
-       return userService.updateById(user);
+    public ResultData<Boolean> updateUser(@RequestBody User user){
+        log.info("进行了 updateUser....");
+        return ResultData.success(userService.updateById(user));
     }
 
 //    删除
     @DeleteMapping("/deleteUser/{id}")
-    public boolean deleteUser(@PathVariable Integer id){
-        return userService.removeById(id);
+    public ResultData<Boolean> deleteUser(@PathVariable Integer id){
+        log.info("进行了 deleteUser....");
+        return ResultData.success(userService.removeById(id));
     }
 
 //    测试  http://localhost:8800/user/deleteUser?id=2
@@ -52,6 +59,11 @@ public class UserController {
 //    return userService.removeById(id);
 //    }
 
+    @GetMapping("/wrong")
+    public int error(){
+        int i = 9/0;
+        return i;
+    }
 
 }
 

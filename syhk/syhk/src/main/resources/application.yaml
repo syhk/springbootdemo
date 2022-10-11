@@ -34,11 +34,11 @@ spring:
 #    time-zone: GMT+8
 
 
-  security:
-    user:
-      name: syhk
-      password: 123456
-      roles: admin
+#  security:
+#    user:
+#      name: syhk
+#      password: 123456
+#      roles: admin
 
 #这里有问题还没有解决
 mybatis-plus:

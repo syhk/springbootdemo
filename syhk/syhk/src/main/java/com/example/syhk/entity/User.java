@@ -1,7 +1,9 @@
 package com.example.syhk.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,6 +22,7 @@ import java.util.Date;
 
 @Data
 @NoArgsConstructor
+@TableName("user")
 public class User  implements Serializable {
 //实体类要记得实现序列化的这个接口
 
@@ -29,9 +32,11 @@ public class User  implements Serializable {
 
 //    用户名称
 
+
     private String name;
 
 //    存放用户的头像路径
+    @TableField("avatarUrl")
     private String avatarUrl;
 
 //用户性别  1 男 0 女
@@ -44,9 +49,11 @@ public class User  implements Serializable {
     private Integer status;
 
 //  用户创建时间
+    @TableField("createTime")
     private Date createTime;
 
 //    用户更新时间
+    @TableField("updateTime")
     private Date updateTime;
 
 

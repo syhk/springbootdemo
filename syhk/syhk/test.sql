@@ -18,7 +18,6 @@ create table  if not exists `user`(
 primary key(`id`) using BTREE
 )engine=InnoDB default CHARSET=utf8 collate=utf8_bin comment='用户信息表';
 
-
 insert  into `user` values(1,"syhk","null",1,"725482520@qq.com",1,"2022-10-10","2022-10-10",1);
 
 select  * from `user`;

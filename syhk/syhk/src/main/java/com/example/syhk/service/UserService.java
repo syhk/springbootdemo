@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  * @update_by syhk
  * @update_at
  */
-@Service
+
 public interface UserService extends IService<User> {
 
 

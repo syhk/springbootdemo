@@ -50,5 +50,9 @@ mybatis-plus:
     db-config:
       id-type: ASSIGN_ID
 
+#控制是否开启 Swagger
+springfox:
+  swagger2:
+    enabled: true
 
 

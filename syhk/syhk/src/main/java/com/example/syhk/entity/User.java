@@ -1,13 +1,12 @@
 package com.example.syhk.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Min;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -31,33 +30,34 @@ public class User  implements Serializable {
     private Integer id;
 
 //    用户名称
-
-
-    private String name;
+    private String name="null";
 
 //    存放用户的头像路径
     @TableField("avatarUrl")
-    private String avatarUrl;
+    private String avatarUrl="null";
 
 //用户性别  1 男 0 女
-    private Integer gender;
+    private Integer gender=1;
 
 //    用户的 email
     private String email ;
 
+//    用户的密码
+    private String pwd;
+
 //    用户状态 1 正常 0 禁用
-    private Integer status;
+    private Integer status=1;
 
 //  用户创建时间
-    @TableField("createTime")
+    @TableField(value = "createTime",fill = FieldFill.INSERT)
     private Date createTime;
 
 //    用户更新时间
-    @TableField("updateTime")
+    @TableField(value = "updateTime",fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
 
 //    用户权限  1 管理员  0 普通用户
-    private  Integer role;
+    private  Integer role=0;
 
 }

@@ -15,8 +15,12 @@ const routes: Array<RouteRecordRaw> = [
 		path: '/test',
 		name: 'test',
 		component: () => import('../components/element_test.vue')
+	},
+	{
+		path: '/test1',
+		name: 'test1',
+		component: () => import('../components/nwfbox.vue')
 	}
-
 
 
 ]

@@ -74,6 +74,7 @@ export default defineComponent({
         .then((res) => {
           console.log(res.data);
           if (res.data.flag === true) {
+            localStorage.setItem("userInfo", JSON.stringify(res.data.data)); //把用户数据存储起来
             console.log("页面跳转到首页");
             router.push("/test");
           }

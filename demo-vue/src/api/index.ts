@@ -10,8 +10,13 @@ const api = {
 	},
 
 	login(email: string, pwd: string) {
-		path.children = '/user/login1';
+		path.children = '/user/login';
 		return axios.post(path.baseUrl.concat(path.children), { email: email, pwd: pwd }); // k - v  形势
+	},
+
+	logout() {
+		path.children = "/user/logout";
+		return axios.post(path.baseUrl.concat(path.children));
 	}
 }
 

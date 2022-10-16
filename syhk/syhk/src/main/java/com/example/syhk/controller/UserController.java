@@ -11,8 +11,11 @@ import com.example.syhk.service.UserService;
 import io.swagger.models.auth.In;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -88,7 +91,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResultData loginCheck(@RequestBody User user){
+    public ResultData loginCheck(HttpServletRequest request, @RequestBody Userlogin user){
         log.info("进行了登录....");
         System.out.println("================="+ user.getEmail());
         System.out.println("==================="+user.getPwd());
@@ -96,27 +99,38 @@ public class UserController {
 //        这里要写泛型类型
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper();
         queryWrapper.eq(User::getEmail, user.getEmail()).eq(User::getPwd,DigestUtils.md5DigestAsHex(user.getPwd().getBytes()));
-        User user1=   userService.getOne(queryWrapper);
-        if(user1 == null) return ResultData.fail(ReturnCode.RC999.getCode(),"该用户未注册！！");
+        User user1=   userService.getOne(queryWrapper); // email 是创建表时指定了唯一性约束，所以只能查出来一个
+
+//        没有这个用户
+        if(user1 == null) return ResultData.fail(ReturnCode.RC999.getCode(),"登录失败！！");
+        log.info("数据查询到的密码为"+user1.getPwd());
+
+//        查看账号是否禁用
+        if(user1.getStatus() == 0){
+            return ResultData.fail(ReturnCode.RC999.getCode(),"账号已禁用");
+        }
+//        登录成功，将用户的 id 存放 Session 并返回
+        request.getSession().setAttribute("user",user1.getId());
+
+//        用 userid 生成 token
+
+
         return ResultData.success(user1);
     }
 
-    @PostMapping("/login1")
-    public ResultData login1Check(@RequestBody Userlogin userlogin){
-        System.out.println(userlogin.getEmail()+"==========="+userlogin.getPwd());
-        return ResultData.success("登录成功");
+
+//退出登录
+    @PostMapping("/logout")
+    public  ResultData<String> logout(HttpServletRequest request){
+        log.info("进入 退出登录 logout 方法");
+//        需要操作 session 需要 request
+        request.getSession().removeAttribute("user");
+        return ResultData.success("退出成功");
     }
 
 
 
-
-
-
-
-
-
-
-
+    
 
 }
 

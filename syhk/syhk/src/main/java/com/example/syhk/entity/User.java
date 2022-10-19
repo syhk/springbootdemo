@@ -1,6 +1,8 @@
 package com.example.syhk.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -50,10 +52,12 @@ public class User  implements Serializable {
 
 //  用户创建时间
     @TableField(value = "createTime",fill = FieldFill.INSERT)
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
 //    用户更新时间
     @TableField(value = "updateTime",fill = FieldFill.INSERT_UPDATE)
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
 

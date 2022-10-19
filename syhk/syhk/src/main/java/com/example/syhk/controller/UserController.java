@@ -2,6 +2,8 @@ package com.example.syhk.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
+import com.example.syhk.Utils.JWTUtils;
+import com.example.syhk.Utils.UpsetString;
 import com.example.syhk.common.ResultData;
 import com.example.syhk.common.ReturnCode;
 import com.example.syhk.dao.UserMapper;
@@ -16,6 +18,7 @@ import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -36,6 +39,9 @@ public class UserController {
 
     @Autowired
     private UserMapper userMapper;
+
+
+
 
 //    获取所有
     @GetMapping("/getAll")
@@ -110,15 +116,28 @@ public class UserController {
             return ResultData.fail(ReturnCode.RC999.getCode(),"账号已禁用");
         }
 //        登录成功，将用户的 id 存放 Session 并返回
-        request.getSession().setAttribute("user",user1.getId());
+        HttpSession session = request.getSession();
+
+       session.setAttribute("user",user1.getId());
+
+       session.setMaxInactiveInterval(1800); //30 min 过期
+
+        Userlogin resUser = new Userlogin();
+        resUser.setEmail(user1.getEmail());
+        resUser.setName(user1.getName());
+        resUser.setGender(user1.getGender());
+        resUser.setAvatarUrl(user1.getAvatarUrl());
+//        密码更改后返回
+//        resUser.setPwd(UpsetString.upsetString(user1.getPwd()));
+//        密码直接返回 null
+        resUser.setPwd("null");
 
 //        用 userid 生成 token
-
-
-        return ResultData.success(user1);
+       String token  = JWTUtils.createToken(request.getSession().getId());
+       log.info(" token为 : {}",token);
+       resUser.setToken(token);
+        return ResultData.success(resUser);
     }
-
-
 //退出登录
     @PostMapping("/logout")
     public  ResultData<String> logout(HttpServletRequest request){
@@ -127,10 +146,6 @@ public class UserController {
         request.getSession().removeAttribute("user");
         return ResultData.success("退出成功");
     }
-
-
-
-    
 
 }
 

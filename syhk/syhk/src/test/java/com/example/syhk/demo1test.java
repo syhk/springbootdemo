@@ -1,5 +1,6 @@
 package com.example.syhk;
 
+import com.example.syhk.Utils.JWTUtils;
 import com.example.syhk.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -34,6 +35,49 @@ public class demo1test {
 //    private void test1(){
 //        System.out.println(userService.list().toString());
 //    }
+
+
+
+    @Test
+   public void tokentest(){
+     String t=  JWTUtils.createToken("123456");
+   System.out.println(t);
+       System.out.println(JWTUtils.checkToken(t));
+
+
+
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

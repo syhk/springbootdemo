@@ -1,5 +1,6 @@
 package com.example.syhk.entity.request;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -11,7 +12,19 @@ import java.io.Serializable;
 @Data
 public class Userlogin implements Serializable {
 
+    private String name="null";
+
+    private String avatarUrl="null";
+
+
+    private Integer gender=1;
+
+
+
     private String email;
 
     private String pwd;
+
+    private String token = "null";
+
 }

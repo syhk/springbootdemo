@@ -35,9 +35,6 @@ public class demo1test {
 //    private void test1(){
 //        System.out.println(userService.list().toString());
 //    }
-
-
-
     @Test
    public void tokentest(){
      String t=  JWTUtils.createToken("123456");

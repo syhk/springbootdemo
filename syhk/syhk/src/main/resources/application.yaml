@@ -1,5 +1,6 @@
 server:
   port: 8800
+
 debug: true
 spring:
   datasource:

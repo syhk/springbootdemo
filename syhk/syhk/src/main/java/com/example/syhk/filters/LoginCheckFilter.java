@@ -63,7 +63,8 @@ public class LoginCheckFilter implements Filter {
         log.info("用户未登录");
 //        未登录
 //        TODO 这里中文前端接收乱码，暂时未解决
-        httpServletResponse.setCharacterEncoding("utf-8");
+//        暂时只能单独设置解决，全局配置没有解决
+        httpServletResponse.setCharacterEncoding("GBK");
         httpServletResponse.getWriter().write(JSON.toJSONString(ResultData.fail(ReturnCode.RC999.getCode(), "用户未登录")));
 
 // 在前端拦截器中处理重定向或转发到哪里（登录页）

@@ -3,6 +3,11 @@ server:
 
 debug: true
 spring:
+#  http:
+#    encoding:
+#      charset: utf-8
+#      force: true
+#      enabled: true
   datasource:
     druid:
     driver-class-name: com.mysql.cj.jdbc.Driver

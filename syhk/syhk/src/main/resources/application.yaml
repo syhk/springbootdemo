@@ -8,6 +8,13 @@ spring:
 #      charset: utf-8
 #      force: true
 #      enabled: true
+  servlet:
+#    配置上传文件的大小限制
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+#      可以在这里配置上传转存的路径
+      location: D:\
   datasource:
     druid:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -60,5 +67,4 @@ mybatis-plus:
 springfox:
   swagger2:
     enabled: true
-
 

@@ -117,6 +117,7 @@ public class UserController {
         }
 //        登录成功，将用户的 id 存放 Session 并返回
         HttpSession session = request.getSession();
+//        request.getSession(true);    // 这个有参数： true: 获取不到的时候就自动创建一个  false：获取不到的时候，不自动创建返回 null
 
        session.setAttribute("user",user1.getId());
 

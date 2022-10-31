@@ -1,0 +1,1 @@
+{"version":"0.0.0","name":"demo-vue","dependencies":{"ant-design-vue":{"version":"3.2.13"},"axios":{"version":"1.1.2"},"node-sass":{"version":"7.0.3"},"querystring":{"version":"0.2.1"},"sass-loader":{"version":"13.1.0"},"sass-resources-loader":{"version":"2.2.5"},"sass":{"version":"1.55.0"},"vue-router":{"version":"4.1.5"},"vue":{"version":"3.2.40"}}}

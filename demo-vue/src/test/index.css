@@ -1,0 +1,78 @@
+.box {
+  display: flex;
+  justify-content: center;
+  margin: 100px auto;
+  width: 600px;
+  height: 240px;
+  box-shadow: 40px 40px 40px #cccccc, 0 0 0 #ffffff, 0 0 0 tomato inset,
+    2px 2px 2px #ffffff inset;
+  background-image: linear-gradient(
+    to right,
+    rgba(124, 211, 245, 0.5),
+    #55f3d1
+  );
+}
+
+.box .s1 {
+  width: calc(100% / 2);
+  /* background-image: linear-gradient(
+        to right,
+        rgba(124, 211, 245, 0.5),
+        #55f3d1
+      ); */
+  background-color: tomato;
+}
+
+.anim1 {
+  transition: all 2s ease 0s;
+  /* transform: scale(0.5); */
+  animation: move1 1s forwards;
+}
+
+.anim2 {
+  transition: all 2s ease 0s;
+  /* transform: scale(0.5); */
+  animation: move2 1s forwards;
+}
+.box .s2 {
+  width: calc(100% / 2);
+  /* background-image: linear-gradient(
+        to right,
+        rgba(124, 211, 245, 0.5),
+        #55f3d1
+      ); */
+  background-color: rgb(116, 238, 238);
+  border-left: 2px dotted tomato;
+}
+span {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+  height: 100%;
+}
+span button {
+  width: 140px;
+  height: 50px;
+  background-color: teal;
+  border-radius: 15px;
+  border-style: none;
+  box-shadow: 2px 2px 2px 2px outset tomato;
+}
+
+@keyframes move1 {
+  0% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(300px);
+  }
+}
+@keyframes move2 {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(-300px);
+  }
+}

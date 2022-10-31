@@ -19,8 +19,6 @@ $bs_color1: #bbbbbb;
 $bs_color2: #ffffff;
 
 .container {
-  width: 100vw;
-  height: 100vh;
   display: grid;
   //   place-items 是 align-items 和 justify-items 两个的简写
   place-items: center;

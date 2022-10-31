@@ -48,6 +48,14 @@ public class demo1test {
 
 
 
+   @Test
+   public void test3(){
+// 测试文件后缀截取是否正确
+        String fileName = "syhk.png";
+        String suffix = fileName.substring(fileName.lastIndexOf("."));
+       System.out.println(suffix);
+
+   }
 
 
 

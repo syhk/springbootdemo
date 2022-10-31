@@ -20,6 +20,16 @@ const routes: Array<RouteRecordRaw> = [
 		path: '/test1',
 		name: 'test1',
 		component: () => import('../components/nwfbox.vue')
+	},
+	{
+		path: '/blog',
+		name: 'blog',
+		component: () => import('../components/blogindex.vue')
+	},
+	{
+		path: '/nav',
+		name: 'nav',
+		component: () => import('../components/navtest.vue')
 	}
 
 

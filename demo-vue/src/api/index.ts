@@ -18,6 +18,12 @@ const api = {
 		path.children = "/user/logout";
 		return axios.post(path.baseUrl.concat(path.children));
 	}
+	,
+	// 获取所有博客文章
+	getAllblog() {
+		path.children = "/blog/getAll";
+		return axios.get(path.baseUrl.concat(path.children));
+	}
 }
 
 

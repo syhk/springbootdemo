@@ -14,17 +14,11 @@ import java.io.Serializable;
  */
 @Data
 public class ResultData<T> implements Serializable {
-
     private int status;
-
     private Boolean flag;
-
     private String message;
-
     private T data;
-
     private Long timestamp;
-
     public ResultData(){
         this.timestamp = System.currentTimeMillis();
     }
@@ -48,3 +42,38 @@ public class ResultData<T> implements Serializable {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

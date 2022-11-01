@@ -1,11 +1,16 @@
 package com.example.syhk;
 
 import com.example.syhk.Utils.JWTUtils;
+import com.example.syhk.entity.Article;
+import com.example.syhk.service.ArticleService;
 import com.example.syhk.service.UserService;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.core.parameters.P;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * TODO:
@@ -20,6 +25,9 @@ public class demo1test {
 
     @Resource
     private UserService userService;
+
+    @Autowired
+    private ArticleService articleService;
 
 
     public static void main(String[] args) {
@@ -56,6 +64,17 @@ public class demo1test {
        System.out.println(suffix);
 
    }
+
+// 测试文章接口
+
+    @Test
+    public void blogtest(){
+
+        List<Article> list = articleService.list();
+        System.out.println(list.toString());
+
+
+    }
 
 
 

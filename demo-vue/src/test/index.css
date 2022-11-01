@@ -1,78 +1,74 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .box {
-  display: flex;
-  justify-content: center;
-  margin: 100px auto;
-  width: 600px;
-  height: 240px;
-  box-shadow: 40px 40px 40px #cccccc, 0 0 0 #ffffff, 0 0 0 tomato inset,
-    2px 2px 2px #ffffff inset;
-  background-image: linear-gradient(
-    to right,
-    rgba(124, 211, 245, 0.5),
-    #55f3d1
-  );
+  /* margin: 0 auto; */
+  width: 200px;
 }
 
-.box .s1 {
-  width: calc(100% / 2);
-  /* background-image: linear-gradient(
-        to right,
-        rgba(124, 211, 245, 0.5),
-        #55f3d1
-      ); */
-  background-color: tomato;
-}
-
-.anim1 {
-  transition: all 2s ease 0s;
-  /* transform: scale(0.5); */
-  animation: move1 1s forwards;
-}
-
-.anim2 {
-  transition: all 2s ease 0s;
-  /* transform: scale(0.5); */
-  animation: move2 1s forwards;
-}
-.box .s2 {
-  width: calc(100% / 2);
-  /* background-image: linear-gradient(
-        to right,
-        rgba(124, 211, 245, 0.5),
-        #55f3d1
-      ); */
-  background-color: rgb(116, 238, 238);
-  border-left: 2px dotted tomato;
-}
-span {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: auto;
-  height: 100%;
-}
-span button {
-  width: 140px;
-  height: 50px;
-  background-color: teal;
+.box input,
+.textar input {
+  padding: 10px;
+  border: 1px solid tomato;
+  background-image: linear-gradient(to right, #78e3f1, rgb(177, 244, 238));
   border-radius: 15px;
-  border-style: none;
-  box-shadow: 2px 2px 2px 2px outset tomato;
+  margin-top: 5px;
 }
 
-@keyframes move1 {
+.box label,
+.textar label,
+textp {
+  font-family: Ubuntu;
+  font-size: 20px;
+}
+
+.textar {
+  /* margin: 50px auto; */
+  width: 200px;
+}
+
+.textar textarea {
+  border-radius: 10px;
+  list-style: none;
+  background-color: aquamarine;
+}
+
+.textp {
+  /* display: none; */
+}
+
+.textp:hover {
+  display: block;
+  transition: all 2s;
+  transform: scale(5);
+  animation: aol 3s infinite;
+}
+
+@keyframes aol {
   0% {
-    transform: translateX(100px);
+    background-color: aqua;
+  }
+  15% {
+    background-color: tomato;
+  }
+  25% {
+    background-color: beige;
+  }
+  50% {
+    background-image: linear-gradient(tomato, #e65673);
+  }
+  75% {
+    display: none;
   }
   100% {
-    transform: translateX(300px);
+    background-color: #e65673;
   }
 }
-@keyframes move2 {
-  0% {
-    transform: translateX(-100px);
-  }
-  100% {
-    transform: translateX(-300px);
-  }
+
+.textar textarea:hover {
+  background-color: tomato;
+  transition: all 2s;
+  transform: scale(0.25);
 }

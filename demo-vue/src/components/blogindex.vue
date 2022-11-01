@@ -69,6 +69,11 @@ export default defineComponent({
         img: "5",
         title: "syhk5",
         content: "syhk",
+      },
+      {
+        img: "5",
+        title: "syhk5",
+        content: "syhk",
       }
     );
 

@@ -4,7 +4,7 @@ const routes: Array<RouteRecordRaw> = [
 	{
 		path: '/',
 		name: 'home',
-		component: () => import('../components/HelloWorld.vue')
+		component: () => import('../components/index.vue')
 	},
 	{
 		path: '/login',
@@ -29,7 +29,22 @@ const routes: Array<RouteRecordRaw> = [
 	{
 		path: '/nav',
 		name: 'nav',
-		component: () => import('../components/navtest.vue')
+		component: () => import('../components/test/navtest.vue')
+	},
+	{
+		path: '/ware',
+		name: 'ware',
+		component: () => import('../components/test/waretest.vue')
+	},
+	{
+		path: '/nav2',
+		name: 'nav2',
+		component: () => import('../components/test/nav2.vue')
+	},
+	{
+		path: '/nav3',
+		name: 'nav3',
+		component: () => import('../components/test/nav3.vue')
 	}
 
 

@@ -60,7 +60,6 @@ public class User  implements Serializable {
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
-
 //    用户权限  1 管理员  0 普通用户
     private  Integer role=0;
 

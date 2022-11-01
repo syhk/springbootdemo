@@ -68,12 +68,13 @@ body {
   background: #eaeef6;
   font-family: "Open Sans", sans-serif;
 }
+
 .navbar {
   $ref: &;
   position: fixed;
   top: $spacer;
   left: $spacer;
-  background: #fff;
+  background: rgb(170, 227, 241);
   border-radius: $borderRadius;
   padding: $spacer 0;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);

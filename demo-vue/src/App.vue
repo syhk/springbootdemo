@@ -2,6 +2,7 @@
   <!-- <div class="header"> -->
   <!-- <span>syhk</span> -->
   <!-- </div> -->
+  <div class="wave"></div>
   <router-view></router-view>
 </template>
 

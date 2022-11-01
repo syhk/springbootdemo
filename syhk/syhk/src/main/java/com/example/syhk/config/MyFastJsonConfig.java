@@ -12,10 +12,10 @@ import java.nio.charset.Charset;
  * TODO:
  * fastjson 配置类
  */
-@Configuration
+//@Configuration
 public class MyFastJsonConfig {
 
-    @Bean
+//    @Bean
     FastJsonHttpMessageConverter fastJsonHttpMessageConverter(){
 
         FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();

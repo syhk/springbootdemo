@@ -23,13 +23,14 @@ public class MyMetaObjecthandler implements MetaObjectHandler {
         log.info("公共字段 insert...");
         metaObject.setValue("createTime", new Date());
         metaObject.setValue("updateTime",new Date());
+        metaObject.setValue("push_time",new Date());
+        metaObject.setValue("create_time",new Date());
     }
 //    执行操作时自动填充
     @Override
     public void updateFill(MetaObject metaObject) {
         log.info("公共字段 update...");
-        metaObject.setValue("createTime", LocalDate.now());
         metaObject.setValue("updateTime",LocalDate.now());
-
+        metaObject.setValue("push_time",new Date());
     }
 }

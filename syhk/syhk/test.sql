@@ -41,8 +41,29 @@ primary key (article_id),
 foreign key (`id`) references `user`(`id`)
 ) comment = '文章';
 
+
 use demo;
 select  * from article  ;
+
+
+--   测试数据
+insert  into article values(1,'2020-10-23', 1,'java',10,20,3000,'2020-10-22','这是关于 java 的相关知识点' );
+
+insert  into article values(2,'2020-10-23', 2,'cpp',10,20,3000,'2020-10-23','这是关于 cpp 的相关知识点' );
+
+insert  into article values(4,'2020-10-23', 4,'go',20,3000,20000,'2020-10-24','这是关于 go 的相关知识点' );
+
+insert  into article values(6,'2020-10-23', 6,'rust',10,20,3000,'2020-10-25','这是关于 rust 的相关知识点' );
+
+
+insert  into article values(7,'2020-10-23', 7,'vue',10,20,3000,'2020-10-26','这是关于 vue 的相关知识点' );
+
+insert  into article values(8,'2020-10-23', 7,'html',10,20,3000,'2020-10-28','这是关于 html 的相关知识点' );
+
+insert  into article values(9,'2000-10-23', 4,'cpp',20,3000,60000,'2000-10-24','这是关于 cpp 的相关知识点' );
+
+
+
 
 -- 使用 id 获取发表用户的信息
 select * from `user` where  `id` = 7;
@@ -66,10 +87,26 @@ select * from article;
 
 
 
-
-
-
-
+-- 文章详情表
+-- 文章详情表
+DROP TABLE IF EXISTS article_detail;
+drop table article_detail ;
+CREATE TABLE article_detail(
+    `article_detail_id` INT NOT NULL AUTO_INCREMENT  COMMENT '文章详情 id' ,
+    `article_id` BIGINT NOT NULL unique  COMMENT '引用文章表的id' , -- 增加了唯一性约束，因为一篇详情内容只有对应一篇文章
+    `article_html` TEXT    COMMENT 'html 格式的文章' ,
+    `article_md` TEXT    COMMENT 'md 格式的文章' ,
+    PRIMARY KEY (article_detail_id,article_id),
+    foreign key (`article_id`) references article(`article_id`)
+)  COMMENT = '文章详情';
+-- 测试数据
+select  * from article_detail;
+insert into demo.`article_detail` ( `article_id`, `article_html`, `article_md`) values ( 1, 'lB', 'BI');
+insert into demo.`article_detail` ( `article_id`, `article_html`, `article_md`) values ( 2, 'EVb', 'mKE2c');
+insert into demo.`article_detail` ( `article_id`, `article_html`, `article_md`) values ( 4, 'EuAZz', 'Xk0');
+insert into demo.`article_detail` ( `article_id`, `article_html`, `article_md`) values ( 6, 'kn', 'h6pbK');
+insert into demo.`article_detail` ( `article_id`, `article_html`, `article_md`) values ( 7, 'aQu', 'YS');
+insert into demo.`article_detail` ( `article_id`, `article_html`, `article_md`) values ( 8, 'w8ix', 'lLE');
 
 
 

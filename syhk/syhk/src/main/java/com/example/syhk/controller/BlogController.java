@@ -1,12 +1,17 @@
 package com.example.syhk.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.syhk.common.ResultData;
 import com.example.syhk.entity.Article;
+import com.example.syhk.entity.ArticleDetail;
+import com.example.syhk.service.ArticleDetailService;
 import com.example.syhk.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
@@ -29,66 +34,45 @@ public class BlogController {
     private ArticleService articleService;
 
 
-
-    static {
-        list = new ArrayList<>();
-        list.add(new Article(1,new Date(),1,"java",10,20,3000,new Date(),"这是关于 java 的相关知识点"));
-        list.add(new Article(2,new Date(),2,"cpp",10,20,3000,new Date(),"这是关于 go 的相关知识点"));
-        list.add(new Article(4,new Date(),4,"go",10,20,3000,new Date(),"这是关于 cpp 的相关知识点"));
-        list.add(new Article(6,new Date(),6,"rust",10,20,3000,new Date(),"这是关于 rust 的相关知识点"));
-    }
-
-
+// 请求方式：应该是先把文章标题，摘要之类的数据加载，如果用户点击哪篇文章来请求对应的详情内容，不请求就不加载
 
 //    测试获取文章列表
     @GetMapping("/getAll")
-public  ResultData<List<Article>> getAll(){
-
-//        List<Article> list = new ArrayList<>();
-//        list = articleService.list();
-//        for (Article article : list) {
-//            System.out.println(article);
-//        }
-//        return ResultData.success(articleService.list());
+  public  ResultData<List<Article>> getAll(){
         return ResultData.success(articleService.list());
-    }
+  }
+
+//  根据用户 id 拿到文章 , 用户个人中文展示的时候，需要用到这个
+    @GetMapping("getbyid")
+  public ResultData<List<Article>> getbyid(Integer id){
+      LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<>();
+      queryWrapper.eq( Article::getId,id);
+   return ResultData.success(articleService.list(queryWrapper));
+  }
 
 
 
+//   首页展示随机获取篇文章
 
 
 
+//    分页查询
+  @GetMapping("/page")
+  public ResultData<Page>  getrand(@RequestParam int page ,@RequestParam int pagesize){
+       log.info("page = {} , pagesize = {}",page,pagesize);
 
+//       构造分页构造器
 
+      Page pageinfo = new Page(page,pagesize);
+//      添加条件查询
+// eg : 分页查询时根据更新 or 创建时间进行排序 ， 还可以添加根据名称或主题进行搜索查找
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//      执行查询
+      articleService.page(pageinfo);
+      return ResultData.success(pageinfo);
+  }
 }
+
+
+
+

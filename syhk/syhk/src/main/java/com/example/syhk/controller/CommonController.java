@@ -30,16 +30,12 @@ import java.util.UUID;
 @RequestMapping("/file")
 public class CommonController {
 
-
-
-        private String basePath = "D:\\img\\";
-
-
+       private static String  basePath="D:\\work\\springbootdemo\\syhk\\syhk\\src\\main\\resources\\upload\\";
 
 //     文件上传
 //    这个 file 名字必须跟前端的对应
     @PostMapping("/upload")
-    public ResultData<String> uplaod(MultipartFile file) throws IOException {
+    public static ResultData<String> uplaod(MultipartFile file) throws IOException {
 //        如果传递过来的文件不保存下来，本次请求结束就会消失（是一个临时文件），所以转存下来
         log.info("进入了文件"+file.toString());
 
@@ -71,8 +67,6 @@ public class CommonController {
 //        将临时文件转存到指定位置
         file.transferTo(new File(basePath+fileName));
 
-
-
 //        把文件名返回去，给页面使用
         return ResultData.success(fileName);
     }
@@ -80,22 +74,8 @@ public class CommonController {
 
 //     文件下载
 //   通过二进制 流的形式写回数据
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @GetMapping("/download")
-    public  void download(String name , HttpServletResponse response) throws IOException {
+    public  static void download(String name , HttpServletResponse response) throws IOException {
 
 //        输入流，通过输入流读取文件内容
         FileInputStream inputStream = new FileInputStream(new File(basePath+name));
@@ -122,103 +102,4 @@ public class CommonController {
             inputStream.close();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

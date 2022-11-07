@@ -2,21 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.syhk.entity.Article">
     <resultMap id="artileMap" type="com.example.syhk.entity.Article">
-        <result property="article_id" column="article_id" javaType="Integer"/>
-        <result property="push_time" column="push_time" javaType="Date"/>
-        <result property="id" column="id" javaType="Integer"/>
-        <result property="title" column="title" javaType="String"/>
-        <result property="like_count" column="like_count" javaType="Integer"/>
-        <result property="remark_count" column="remark_count" javaType="Integer"/>
-        <result property="read_count" column="read_count" javaType="Integer"/>
-        <result property="create_time" column="create_time" javaType="Date"/>
-        <result property="article_summary" column="article_summary" javaType="String"/>
+        <result property="ArticleId" column="article_id" javaType="Integer"/>
+        <result property="PushTime" column="push_time" javaType="Date"/>
+        <result property="Id" column="id" javaType="Integer"/>
+        <result property="Title" column="title" javaType="String"/>
+        <result property="LikeCount" column="like_count" javaType="Integer"/>
+        <result property="RemarkCount" column="remark_count" javaType="Integer"/>
+        <result property="ReadCount" column="read_count" javaType="Integer"/>
+        <result property="CreateTime" column="create_time" javaType="Date"/>
+        <result property="ArticleSummary" column="article_summary" javaType="String"/>
     </resultMap>
-
-
-
-
-
-
 
 </mapper>

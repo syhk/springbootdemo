@@ -40,7 +40,8 @@ public class LoginCheckFilter implements Filter {
 
 //        需要直接放行的请求路径
         String[] urls = new String[]{
-          "/user/login"
+          "/user/login",
+                "/blog/page"
         };
 
 //        判断请求是否需要处理

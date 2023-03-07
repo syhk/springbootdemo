@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.syhk.entity.Article">
+    <resultMap id="artileMap" type="com.example.syhk.entity.Article">
+        <result property="ArticleId" column="article_id" javaType="Integer"/>
+        <result property="PushTime" column="push_time" javaType="Date"/>
+        <result property="Id" column="id" javaType="Integer"/>
+        <result property="Title" column="title" javaType="String"/>
+        <result property="LikeCount" column="like_count" javaType="Integer"/>
+        <result property="RemarkCount" column="remark_count" javaType="Integer"/>
+        <result property="ReadCount" column="read_count" javaType="Integer"/>
+        <result property="CreateTime" column="create_time" javaType="Date"/>
+        <result property="ArticleSummary" column="article_summary" javaType="String"/>
+    </resultMap>
+
+
+</mapper>

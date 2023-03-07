@@ -1,0 +1,102 @@
+server:
+  port: 8800
+
+debug: true
+spring:
+  session:
+    store-type: redis
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 1800
+    flush-mode: on_save
+    database: 0
+    password: 725482520
+    pool:
+      min-idle: 0
+      max-idle: 8
+      max-active: 8
+      max-wait: -1
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+  servlet:
+#    配置上传文件的大小限制
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+#      可以在这里配置上传转存的路径
+      location: D:\
+  datasource:
+    druid:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.01:3306/demo?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=GMT%2B8&allowMultiQueries=true&useAffectedRows=true
+    username: root
+    password: 725482520
+
+    max-active: 20
+
+    initial-size: 2
+
+    min-idle: 5
+
+    min-evictable-idle-time-millis: 300000
+
+    max-wait: 60000
+
+    validation-query: select 1
+
+    test-on-borrow: false
+
+    test-on-return: false
+
+    test-while-idle: true
+
+    time-between-eviction-runs-millis: 60000
+#  session 配置
+#session:
+#  redis:
+#    flush-mode: on_save # 指定当请求处理完成时才将会话数据保存到 Redis 中
+#    namespace: session.demo # 指定会话数据在 Redis 中存储的名称空间
+#    cleanup-cron: 0 * * * * * # 指定一个 Cron 表达式，用于定期清理 Redis 中的过期会话数据，这里设置每小时的 0 分钟清理一次
+#  store-type: redis # 指定存储后端的类型为 Redis
+#  timout: 1800 # 30 分钟会话没有被访问就会清理
+#    redis 配置
+
+
+
+#  jackson:
+#    date-format: yyyy-MM-dd hh:mm:ss
+#    time-zone: GMT+8
+
+
+#  security:
+#    user:
+#      name: syhk
+#      password: 123456
+#      roles: admin
+
+#这里有问题还没有解决
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
+
+#控制是否开启 Swagger
+springfox:
+  swagger2:
+    enabled: true
+
+
+
+
+
+
+

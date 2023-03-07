@@ -1,0 +1,74 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.box {
+  /* margin: 0 auto; */
+  width: 200px;
+}
+
+.box input,
+.textar input {
+  padding: 10px;
+  border: 1px solid tomato;
+  background-image: linear-gradient(to right, #78e3f1, rgb(177, 244, 238));
+  border-radius: 15px;
+  margin-top: 5px;
+}
+
+.box label,
+.textar label,
+textp {
+  font-family: Ubuntu;
+  font-size: 20px;
+}
+
+.textar {
+  /* margin: 50px auto; */
+  width: 200px;
+}
+
+.textar textarea {
+  border-radius: 10px;
+  list-style: none;
+  background-color: aquamarine;
+}
+
+.textp {
+  /* display: none; */
+}
+
+.textp:hover {
+  display: block;
+  transition: all 2s;
+  transform: scale(5);
+  animation: aol 3s infinite;
+}
+
+@keyframes aol {
+  0% {
+    background-color: aqua;
+  }
+  15% {
+    background-color: tomato;
+  }
+  25% {
+    background-color: beige;
+  }
+  50% {
+    background-image: linear-gradient(tomato, #e65673);
+  }
+  75% {
+    display: none;
+  }
+  100% {
+    background-color: #e65673;
+  }
+}
+
+.textar textarea:hover {
+  background-color: tomato;
+  transition: all 2s;
+  transform: scale(0.25);
+}

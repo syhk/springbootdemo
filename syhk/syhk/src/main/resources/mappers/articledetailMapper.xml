@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.syhk.entity.ArticleDetail">
+
+    <resultMap id="articledetailMap" type="com.example.syhk.entity.ArticleDetail">
+        <result property="ArticleDetailId" column="article_detail_id"/>
+        <result property="ArticleId" column="article_id"/>
+        <result property="ArticleHtml" column="article_html"/>
+        <result property="ArticleMd" column="article_md"/>
+    </resultMap>
+
+
+
+</mapper>

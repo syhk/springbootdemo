@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic" /> -->
+  </head>
+
+  <body>
+    <div>
+      <form class="box" action="#" target="_self">
+        <!-- label 的 for 对应控件的 id -->
+        <label for="in1">username</label>
+        <input type="text" id="in1" value="syhk" />
+        <br />
+        <label for="in2">password</label>
+        <input type="password" id="in2" value="syhk" />
+        <br />
+        <p>性别:</p>
+        <label for="in4">男</label>
+        <input id="in4" type="radio" name="sex" checked="checked" />
+        <label for="in5">女</label>
+        <input id="in5" type="radio" name="sex" />
+        <br />
+        <input
+          style="text-align: center"
+          id="in3"
+          type="submit"
+          value="login"
+          name=""
+        />
+        <br />
+        <p>兴趣爱好:</p>
+        <label for="ch1"> play game: </label>
+        <input type="checkbox" name="" id="ch1" />
+        <label for="ch1"> music: </label>
+        <input type="checkbox" name="" id="ch1" />
+        <label for="ch1"> code: </label>
+        <input type="checkbox" checked="checked" name="" id="ch1" />
+        <br />
+        <!-- image button -->
+        <input id="in6" type="image" src="../assets/vue.svg" />
+        <br />
+        <input type="reset" value="reset" />
+        <br />
+        <input type="file" />
+      </form>
+    </div>
+    <div class="textar">
+      <p>留言板:</p>
+      <p class="textp">别想留言</p>
+      <textarea name="" id="text1" cols="30" rows="10"></textarea>
+      <br />
+      <input type="submit" value="提交留言" />
+      <br />
+      <select name="game" id="" autofocus>
+        <optgroup>
+          <option value="1">game1</option>
+          <option value="2">game2</option>
+          <option value="3">game3</option>
+          <option value="4">game4</option>
+        </optgroup>
+        <optgroup>
+          <option value="1">game1</option>
+          <option value="2">game2</option>
+          <option value="3">game3</option>
+          <option value="4">game4</option>
+        </optgroup>
+      </select>
+    </div>
+  </body>
+</html>
